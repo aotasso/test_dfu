@@ -220,6 +220,8 @@ var device = null;
     document.addEventListener('DOMContentLoaded', event => {
         let connectButton = document.querySelector("#connect");
         let detachButton = document.querySelector("#detach");
+        //追加分
+        let updateButton = document.querySelector("#update");
         let downloadButton = document.querySelector("#download");
         let uploadButton = document.querySelector("#upload");
         let statusDisplay = document.querySelector("#status");
@@ -630,20 +632,39 @@ var device = null;
         });
 
         //ファイル読み込み用なので不要？
-        firmwareFileField.addEventListener("change", function() {
+        //firmwareFileField.addEventListener("change", function() {
+            //コメントアウト
+            //firmwareFile = null;
+            //if (firmwareFileField.files.length > 0) {
+            //    let file = firmwareFileField.files[0];
+            //    let reader = new FileReader();
+            //    reader.onload = function() {
+            //        firmwareFile = reader.result;
+            //        console.log('*****firmwareFile');
+            //        console.log(firmwareFile);
+            //    };
+            //    console.log('file: ', file);
+            //    reader.readAsArrayBuffer(file);
+            //}
+        //});
+
+        //今回追加分の処理
+        updateButton.addEventListener('click', function() {
             firmwareFile = null;
-            if (firmwareFileField.files.length > 0) {
-                let file = firmwareFileField.files[0];
+            fetch('https://cdn.shopify.com/s/files/1/2681/3762/files/ParipiDestroyer_v1-1b.NUCLEO_L433RC_P-17.bin?1').then(function(response) {
+                return response.blob();
+              }).then(function(blob) {
+                // blobにBlob型で結果が渡される
                 let reader = new FileReader();
                 reader.onload = function() {
                     firmwareFile = reader.result;
                     console.log('*****firmwareFile');
                     console.log(firmwareFile);
-                };
-                console.log('file: ', file);
-                reader.readAsArrayBuffer(file);
-            }
+                }
+                reader.readAsDataURL(blob);
+              });
         });
+
 
         //イベント監視開始
         downloadButton.addEventListener('click', async function(event) {
