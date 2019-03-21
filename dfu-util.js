@@ -655,22 +655,22 @@ var device = null;
             fetch('https://cdn.shopify.com/s/files/1/2681/3762/files/ParipiDestroyer_v1-1b.NUCLEO_L433RC_P-17.bin').then(function(response) {
                 console.log('656');
                 return response.blob();
-              }).then(function(blob) {
-                console.log(blob);
-                // blobにBlob型で結果が渡される
-                let reader = new FileReader();
-                reader.blob = eve =>{
-                    reader.onload = function() {
-                        firmwareFile = reader.result;
-                        console.log('*****firmwareFile');
-                        console.log(firmwareFile);
+                }).then(function(blob) {
+                    console.log(blob);
+                    // blobにBlob型で結果が渡される
+                    let reader = new FileReader();
+                    reader.blob = eve =>{
+                        reader.onload = function() {
+                            firmwareFile = reader.result;
+                            console.log('*****firmwareFile');
+                            console.log(firmwareFile);
+                        }
+                        //reader.readAsDataURL(blob);
+                        reader.readAsArrayBuffer(blob);
                     }
-                    //reader.readAsDataURL(blob);
-                    reader.readAsArrayBuffer(blob);
-                }
-                reader.onerror = eve =>{
-                    console.log(reader.error);
-                }
+                    reader.onerror = eve =>{
+                        console.log(reader.error);
+                    }
               });
         });
 
