@@ -650,6 +650,7 @@ var device = null;
                 return false;
             }
             //deviceチェック　＆　バイナリnullチェック
+            console.log('firmwareFile: ', firmwareFile);
             if (device && firmwareFile != null) {
                 setLogContext(downloadLog);
                 clearLog(downloadLog);
