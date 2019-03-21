@@ -463,6 +463,7 @@ var dfu = {};
     };
 
     dfu.Device.prototype.download = function(data, blockNum) {
+        console.log('パリピに送るdata: ', data);
         return this.requestOut(dfu.DNLOAD, data, blockNum);
     };
 

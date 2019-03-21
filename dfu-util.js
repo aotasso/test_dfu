@@ -624,7 +624,6 @@ var device = null;
         firmwareFileField.addEventListener("change", function() {
             firmwareFile = null;
             if (firmwareFileField.files.length > 0) {
-                console.log(firmwareFileField);
                 let file = firmwareFileField.files[0];
                 let reader = new FileReader();
                 reader.onload = function() {
