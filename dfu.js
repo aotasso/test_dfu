@@ -415,7 +415,7 @@ var dfu = {};
             "index": this.intfNumber
         }, wLength).then(
             result => {
-                console.log('error:418');
+                console.log('result:418');
                 if (result.status == "ok") {
                     return Promise.resolve(result.data);
                 } else {
