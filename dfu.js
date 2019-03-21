@@ -378,11 +378,18 @@ var dfu = {};
         );
     };
 
+    //ここでデバイスに要求してるみたいだね〜
     dfu.Device.prototype.requestOut = function(bRequest, data, wValue=0) {
+        //var promise = USBDevice.controlTransferOut(setup, data)
+        //インターフェイスのcontrolTransferOut()メソッドは、
+        //USBデバイスからコマンドまたはステータス操作が送信されたときに解決するUSBDevicea promiseを返します
+        //ちなみにここでのdeviceはnavigator.usb.getDevices()でブラウザに接続しているUSBデバイスを取得したもの
         return this.device_.controlTransferOut({
             "requestType": "class",
             "recipient": "interface",
+            //ここにdfu.DNLOAD（0x01）が入るのかあ〜
             "request": bRequest,
+            //ここにバイナリデータが入ってくるみたいね
             "value": wValue,
             "index": this.intfNumber
         }, data).then(
@@ -408,6 +415,7 @@ var dfu = {};
             "index": this.intfNumber
         }, wLength).then(
             result => {
+                console.log("result!!!!!!!!");
                 if (result.status == "ok") {
                     return Promise.resolve(result.data);
                 } else {
@@ -415,6 +423,7 @@ var dfu = {};
                 }
             },
             error => {
+                console.log("error!!!!!!!!");
                 return Promise.reject("ControlTransferIn failed: " + error);
             }
         );
@@ -582,6 +591,7 @@ var dfu = {};
             let bytes_written = 0;
             let dfu_status;
             try {
+                //ここで送ってるみたいだね〜
                 bytes_written = await this.download(data.slice(bytes_sent, bytes_sent+chunk_size), transaction++);
                 this.logDebug("Sent " + bytes_written + " bytes");
                 dfu_status = await this.poll_until_idle(dfu.dfuDNLOAD_IDLE);
