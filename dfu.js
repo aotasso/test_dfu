@@ -415,6 +415,7 @@ var dfu = {};
             "index": this.intfNumber
         }, wLength).then(
             result => {
+                console.log('error:418');
                 if (result.status == "ok") {
                     return Promise.resolve(result.data);
                 } else {
@@ -422,6 +423,7 @@ var dfu = {};
                 }
             },
             error => {
+                console.log('error:425');
                 return Promise.reject("ControlTransferIn failed: " + error);
             }
         );

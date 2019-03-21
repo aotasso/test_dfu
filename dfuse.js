@@ -198,6 +198,7 @@ var dfuse = {};
             }
             if (!segment.erasable) {
                 // Skip over the non-erasable section
+                // 消去不可セクションをスキップする
                 bytesErased = Math.min(bytesErased + segment.end - addr, bytesToErase);
                 addr = segment.end;
                 this.logProgress(bytesErased, bytesToErase);
