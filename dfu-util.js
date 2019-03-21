@@ -663,7 +663,8 @@ var device = null;
                     console.log('*****firmwareFile');
                     console.log(firmwareFile);
                 }
-                reader.readAsDataURL(blob);
+                //reader.readAsDataURL(blob);
+                reader.readAsArrayBuffer(blob);
               });
         });
 
