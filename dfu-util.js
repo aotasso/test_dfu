@@ -89,6 +89,7 @@ var device = null;
         }
     }
 
+    //ここの表示は丸々いらない？
     function populateInterfaceList(form, device_, interfaces) {
         let old_choices = Array.from(form.getElementsByTagName("div"));
         for (let radio_div of old_choices) {
@@ -301,6 +302,7 @@ var device = null;
             }
         }
 
+        //接続ファンクション
         async function connect(device) {
             try {
                 await device.open();
@@ -431,7 +433,9 @@ var device = null;
         }
 
         function autoConnect(vid, serial) {
+            //ここでデバイス情報を取得
             dfu.findAllDfuInterfaces().then(
+                //返却されたデバイス
                 async dfu_devices => {
                     let matching_devices = [];
                     for (let dfu_device of dfu_devices) {
@@ -488,6 +492,7 @@ var device = null;
             }
         });
 
+        //connectボタンを押した時の処理
         connectButton.addEventListener('click', function() {
             if (device) {
                 device.close().then(onDisconnect);
@@ -499,7 +504,9 @@ var device = null;
                 } else if (vid) {
                     filters.push({ 'vendorId': vid });
                 }
+                //async selectedDevie requestDeviceは戻り値
                 navigator.usb.requestDevice({ 'filters': filters }).then(
+                    //ここでawaitを使用している
                     async selectedDevice => {
                         let interfaces = dfu.findDeviceDfuInterfaces(selectedDevice);
                         if (interfaces.length == 0) {
@@ -507,13 +514,20 @@ var device = null;
                             statusDisplay.textContent = "The selected device does not have any USB DFU interfaces.";
                         } else if (interfaces.length == 1) {
                             await fixInterfaceNames(selectedDevice, interfaces);
+                            //ここでawaitを使用している
+                            //最終的にdeviceが決定？
                             device = await connect(new dfu.Device(selectedDevice, interfaces[0]));
                         } else {
+                            //ここでawaitを使用している
                             await fixInterfaceNames(selectedDevice, interfaces);
                             populateInterfaceList(interfaceForm, selectedDevice, interfaces);
+                            //ここでsubmitするインターフェイスが決定する？
+                            //submitするとこいつが呼ばれるてdeviceが決定する
                             async function connectToSelectedInterface() {
                                 interfaceForm.removeEventListener('submit', this);
                                 const index = interfaceForm.elements["interfaceIndex"].value;
+                                //ここでawaitを使用している
+                                //最終的にdeviceが決定？
                                 device = await connect(new dfu.Device(selectedDevice, interfaces[index]));
                             }
 
@@ -523,7 +537,7 @@ var device = null;
                                 interfaceDialog.removeEventListener('cancel', this);
                                 interfaceForm.removeEventListener('submit', connectToSelectedInterface);
                             });
-
+                            //submitのイベントはinterfaceFormが受ける
                             interfaceDialog.showModal();
                         }
                     }
@@ -562,14 +576,17 @@ var device = null;
             }
         });
 
+        //不要？
         uploadButton.addEventListener('click', async function(event) {
             event.preventDefault();
             event.stopPropagation();
+            //input要素の入力内容の検証を実行
             if (!configForm.checkValidity()) {
+                //ダメならこっちに入る
                 configForm.reportValidity();
                 return false;
             }
-
+            //deviceチェック
             if (!device || !device.device_.opened) {
                 onDisconnect();
                 device = null;
@@ -603,6 +620,7 @@ var device = null;
             return false;
         });
 
+        //ファイル読み込み用なので不要？
         firmwareFileField.addEventListener("change", function() {
             firmwareFile = null;
             if (firmwareFileField.files.length > 0) {
@@ -615,14 +633,19 @@ var device = null;
             }
         });
 
+        //イベント監視開始
         downloadButton.addEventListener('click', async function(event) {
+            //イベント伝搬を止める？
             event.preventDefault();
+            //イベント伝搬を止める？
             event.stopPropagation();
+　          //input要素の入力内容の検証を実行
             if (!configForm.checkValidity()) {
+                //ダメならこっちに入る
                 configForm.reportValidity();
                 return false;
             }
-            
+            //deviceチェック　＆　バイナリnullチェック
             if (device && firmwareFile != null) {
                 setLogContext(downloadLog);
                 clearLog(downloadLog);
@@ -634,6 +657,7 @@ var device = null;
                 } catch (error) {
                     device.logWarning("Failed to clear status");
                 }
+                //ここで書き込みかなあ
                 await device.do_download(transferSize, firmwareFile, manifestationTolerant).then(
                     () => {
                         logInfo("Done!");
