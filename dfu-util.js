@@ -654,7 +654,7 @@ var device = null;
             firmwareFile = null;
             fetch('https://cdn.shopify.com/s/files/1/2681/3762/files/ParipiDestroyer_v1-1b.NUCLEO_L433RC_P-17.bin').then(function(response) {
                 console.log('656');
-                return false;
+                return;
                 return response.blob();
                 }).then(function(blob) {
                     console.log(blob);
