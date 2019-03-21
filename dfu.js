@@ -554,6 +554,8 @@ var dfu = {};
 
     dfu.Device.prototype.poll_until = async function(state_predicate) {
         let dfu_status = await this.getStatus();
+        console.log('dfu_status');
+        console.log(dfu_status);
 
         let device = this;
         function async_sleep(duration_ms) {
