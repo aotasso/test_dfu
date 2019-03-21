@@ -523,22 +523,31 @@ var device = null;
                             populateInterfaceList(interfaceForm, selectedDevice, interfaces);
                             //ここでsubmitするインターフェイスが決定する？
                             //submitするとこいつが呼ばれるてdeviceが決定する
+                            //自動的にこれ発動したいからconnectToSelectedInterfaceをふつうに呼び出す
                             async function connectToSelectedInterface() {
                                 interfaceForm.removeEventListener('submit', this);
-                                const index = interfaceForm.elements["interfaceIndex"].value;
+                                //これふつうに0番目読めばええんやね
+                                //コメントアウト
+                                //const index = interfaceForm.elements["interfaceIndex"].value;
+                                const index = interfaceForm.elements[0].value;
                                 //ここでawaitを使用している
                                 //最終的にdeviceが決定？
                                 device = await connect(new dfu.Device(selectedDevice, interfaces[index]));
                             }
+                            connectToSelectedInterface()
+                            //ここでsubmitを待つ変わりにconnectToSelectedInterfaceを叩くように
+                            //変更する？？？？
+                            //コメントアウト
+                            //interfaceForm.addEventListener('submit', connectToSelectedInterface);
 
-                            interfaceForm.addEventListener('submit', connectToSelectedInterface);
-
-                            interfaceDialog.addEventListener('cancel', function () {
-                                interfaceDialog.removeEventListener('cancel', this);
-                                interfaceForm.removeEventListener('submit', connectToSelectedInterface);
-                            });
+                            //コメントアウト
+                            //interfaceDialog.addEventListener('cancel', function () {
+                            //    interfaceDialog.removeEventListener('cancel', this);
+                            //    interfaceForm.removeEventListener('submit', connectToSelectedInterface);
+                            //});
                             //submitのイベントはinterfaceFormが受ける
-                            interfaceDialog.showModal();
+                            //ここはあとでコメントアウトだ
+                            //interfaceDialog.showModal();
                         }
                     }
                 ).catch(error => {
