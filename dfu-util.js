@@ -643,13 +643,13 @@ var device = null;
             event.preventDefault();
             //イベント伝搬を止める？
             event.stopPropagation();
-　          //input要素の入力内容の検証を実行
+            //input要素の入力内容の検証を実行
             if (!configForm.checkValidity()) {
                 //ダメならこっちに入る
                 configForm.reportValidity();
                 return false;
             }
-            //deviceチェック　＆　バイナリnullチェック
+            //deviceチェック＆バイナリnullチェック
             console.log('firmwareFile: ', firmwareFile);
             if (device && firmwareFile != null) {
                 setLogContext(downloadLog);
