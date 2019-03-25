@@ -650,8 +650,10 @@ var device = null;
 
         //今回追加分の処理
         updateButton.addEventListener('click', function() {
-            console.log('click-1');
+            event.preventDefault();
+            event.stopPropagation();
             firmwareFile = null;
+            //リダイレクトは伝搬が原因？？？
             fetch('https://aotasso.github.io/test_dfu/firmware.bin').then(function(response) {
                 console.log('656');
                 return response.blob();
