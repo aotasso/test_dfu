@@ -660,7 +660,8 @@ var device = null;
                 }).then(function(blob) {
                     console.log(blob);
                     // blobにBlob型で結果が渡される
-                    const reader = new FileReader();
+                    console.log('4444');
+                    let reader = new FileReader();
                     console.log(reader);
                     reader.blob = eve =>{
                         reader.onload = function() {
