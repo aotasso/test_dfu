@@ -660,23 +660,18 @@ var device = null;
                 }).then(function(blob) {
                     console.log(blob);
                     // blobにBlob型で結果が渡される
-                    console.log('4444');
+                    console.log('5');
                     let reader = new FileReader();
                     console.log(reader);
-                    reader.blob = eve =>{
-                        reader.onload = function() {
-                            firmwareFile = reader.result;
-                            console.log('*****firmwareFile');
-                            console.log(firmwareFile);
-                        }
-                        //reader.readAsDataURL(blob);
-                        reader.readAsArrayBuffer(blob);
+                    reader.onload = function() {
+                        firmwareFile = reader.result;
+                        console.log('*****firmwareFile');
+                        console.log(firmwareFile);
                     }
-                    reader.onerror = eve =>{
-                        console.log(reader.error);
-                    }
-              });
-        });
+                     //reader.readAsDataURL(blob);
+                    reader.readAsArrayBuffer(blob);
+                });
+            });
 
 
         //イベント監視開始
