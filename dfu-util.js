@@ -660,19 +660,19 @@ var device = null;
                 }).then(function(blob) {
                     console.log(blob);
                     // blobにBlob型で結果が渡される
-                    //let reader = new FileReader();
-                    //reader.blob = eve =>{
-                    //    reader.onload = function() {
-                    //        firmwareFile = reader.result;
-                    //        console.log('*****firmwareFile');
-                    //        console.log(firmwareFile);
-                    //    }
-                    //    //reader.readAsDataURL(blob);
-                    //    reader.readAsArrayBuffer(blob);
-                    //}
-                    //reader.onerror = eve =>{
-                    //    console.log(reader.error);
-                    //}
+                    let reader = new FileReader();
+                    reader.blob = eve =>{
+                        reader.onload = function() {
+                            firmwareFile = reader.result;
+                            console.log('*****firmwareFile');
+                            console.log(firmwareFile);
+                        }
+                        //reader.readAsDataURL(blob);
+                        reader.readAsArrayBuffer(blob);
+                    }
+                    reader.onerror = eve =>{
+                        console.log(reader.error);
+                    }
               });
         });
 
