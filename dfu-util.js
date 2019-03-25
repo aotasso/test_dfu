@@ -661,6 +661,7 @@ var device = null;
                     console.log(blob);
                     // blobにBlob型で結果が渡される
                     const reader = new FileReader();
+                    console.log(reader);
                     reader.blob = eve =>{
                         reader.onload = function() {
                             firmwareFile = reader.result;
