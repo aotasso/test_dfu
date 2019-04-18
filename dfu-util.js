@@ -278,7 +278,7 @@ var device = null;
 
         let manifestationTolerant = true;
 
-        //let device;
+        let device;
 
         function onDisconnect(reason) {
             if (reason) {
