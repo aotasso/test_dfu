@@ -365,8 +365,8 @@ var device = null;
             if (desc && Object.keys(desc).length > 0) {
                 device.properties = desc;
                 //let info = `WillDetach=${desc.WillDetach}, ManifestationTolerant=${desc.ManifestationTolerant}, CanUpload=${desc.CanUpload}, CanDnload=${desc.CanDnload}, TransferSize=${desc.TransferSize}, DetachTimeOut=${desc.DetachTimeOut}, Version=${hex4(desc.DFUVersion)}`;
-                page1.style.display = "none"
-                page2.style.display = "block"
+                page1.style.display = "none";
+                page2.style.display = "block";
                 //dfuDisplay.textContent += "\n" + info;
                 //transferSizeField.value = desc.TransferSize;
                 transferSize = desc.TransferSize;
