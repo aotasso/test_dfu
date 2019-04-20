@@ -678,10 +678,11 @@ var device = null;
         //イベント監視開始
         //downloadButton.addEventListener('click', async function(event) {
         async function startDownload() {
+            console.log('start download');
             //イベント伝搬を止める？
-            event.preventDefault();
+            //event.preventDefault();
             //イベント伝搬を止める？
-            event.stopPropagation();
+            //event.stopPropagation();
             //input要素の入力内容の検証を実行
             // if (!configForm.checkValidity()) {
             //     //ダメならこっちに入る
