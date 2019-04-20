@@ -29,8 +29,8 @@ div#modal-paripi {
   bottom: 0px;
   left: 0px;
   margin: auto;
-  width: 128px;
-  height: 64px;
+  width: 50%;
+  height: 139px;
 }
 
 @media (max-width: 684px) {
