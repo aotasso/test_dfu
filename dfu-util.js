@@ -715,6 +715,7 @@ var device = null;
             event.stopPropagation();
             firmwareFile = null;
             page3.style.display = 'none';
+            console.log('page4');
             fadeIn(page4, 500);
             //リダイレクトは伝搬が原因？？？
             //あとでパラメータにタイムスタンプ与えること
