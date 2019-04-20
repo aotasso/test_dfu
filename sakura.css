@@ -17,7 +17,7 @@ body {
   background-color: #4a4a4a;
   padding: 13px; }
 
-div.paripi-modal {
+div#modal-paripi {
   font-size: 1.8rem;
   line-height: 1.618;
   max-width: 38em;
