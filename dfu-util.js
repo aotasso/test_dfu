@@ -224,6 +224,7 @@ var device = null;
         let updateButton = document.querySelector("#update");
         let downloadButton = document.querySelector("#download");
         let uploadButton = document.querySelector("#upload");
+        //接続デバイスのステータス表示
         let statusDisplay = document.querySelector("#status");
         let infoDisplay = document.querySelector("#usbInfo");
         let dfuDisplay = document.querySelector("#dfuInfo");
