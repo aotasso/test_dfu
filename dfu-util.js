@@ -313,7 +313,7 @@ var device = null;
               }
             });
         }
-        fadeIn(document.querySelector('#modal-paripi'), 300);
+        fadeIn(document.querySelector('#modal-paripi'), 500);
 
         function onDisconnect(reason) {
             if (reason) {
