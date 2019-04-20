@@ -219,7 +219,7 @@ var device = null;
 
     document.addEventListener('DOMContentLoaded', event => {
         let connectButton = document.querySelector("#connect");
-        let detachButton = document.querySelector("#detach");
+        //let detachButton = document.querySelector("#detach");
         //追加分
         let updateButton = document.querySelector("#update");
         let downloadButton = document.querySelector("#download");
@@ -289,7 +289,7 @@ var device = null;
             connectButton.textContent = "Connect";
             //infoDisplay.textContent = "";
             //dfuDisplay.textContent = "";
-            detachButton.disabled = true;
+            //detachButton.disabled = true;
             uploadButton.disabled = true;
             downloadButton.disabled = true;
             firmwareFileField.disabled = true;
@@ -401,13 +401,13 @@ var device = null;
             // Update buttons based on capabilities
             if (device.settings.alternate.interfaceProtocol == 0x01) {
                 // Runtime
-                detachButton.disabled = false;
+                //detachButton.disabled = false;
                 uploadButton.disabled = true;
                 downloadButton.disabled = true;
                 firmwareFileField.disabled = true;
             } else {
                 // DFU
-                detachButton.disabled = true;
+                //detachButton.disabled = true;
                 uploadButton.disabled = false;
                 downloadButton.disabled = false;
                 firmwareFileField.disabled = false;
@@ -561,34 +561,35 @@ var device = null;
             }
         });
 
-        detachButton.addEventListener('click', function() {
-            if (device) {
-                device.detach().then(
-                    async len => {
-                        let detached = false;
-                        try {
-                            await device.close();
-                            await device.waitDisconnected(5000);
-                            detached = true;
-                        } catch (err) {
-                            console.log("Detach failed: " + err);
-                        }
+        //あとで実装
+        // detachButton.addEventListener('click', function() {
+        //     if (device) {
+        //         device.detach().then(
+        //             async len => {
+        //                 let detached = false;
+        //                 try {
+        //                     await device.close();
+        //                     await device.waitDisconnected(5000);
+        //                     detached = true;
+        //                 } catch (err) {
+        //                     console.log("Detach failed: " + err);
+        //                 }
 
-                        onDisconnect();
-                        device = null;
-                        if (detached) {
-                            // Wait a few seconds and try reconnecting
-                            setTimeout(autoConnect, 5000);
-                        }
-                    },
-                    async error => {
-                        await device.close();
-                        onDisconnect(error);
-                        device = null;
-                    }
-                );
-            }
-        });
+        //                 onDisconnect();
+        //                 device = null;
+        //                 if (detached) {
+        //                     // Wait a few seconds and try reconnecting
+        //                     setTimeout(autoConnect, 5000);
+        //                 }
+        //             },
+        //             async error => {
+        //                 await device.close();
+        //                 onDisconnect(error);
+        //                 device = null;
+        //             }
+        //         );
+        //     }
+        // });
 
         //不要？
         uploadButton.addEventListener('click', async function(event) {
