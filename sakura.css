@@ -19,13 +19,18 @@ body {
 
 div#modal-paripi {
   position: fixed;
-  width: 50%;
-  margin: 0;
   padding: 10px 20px;
   border: 2px solid #aaa;
   color: #4a4a4a;
   background: #fff;
   z-index: 2;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin: auto;
+  width: 128px;
+  height: 64px;
 }
 
 @media (max-width: 684px) {
