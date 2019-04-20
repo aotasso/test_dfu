@@ -523,19 +523,20 @@ var device = null;
                         } else {
                             //ここでawaitを使用している
                             await fixInterfaceNames(selectedDevice, interfaces);
-                            populateInterfaceList(interfaceForm, selectedDevice, interfaces);
+                            //populateInterfaceList(interfaceForm, selectedDevice, interfaces);
                             //ここでsubmitするインターフェイスが決定する？
                             //submitするとこいつが呼ばれるてdeviceが決定する
                             //自動的にこれ発動したいからconnectToSelectedInterfaceをふつうに呼び出す
                             async function connectToSelectedInterface() {
-                                interfaceForm.removeEventListener('submit', this);
+                                //interfaceForm.removeEventListener('submit', this);
                                 //これふつうに0番目読めばええんやね
                                 //コメントアウト
                                 //const index = interfaceForm.elements["interfaceIndex"].value;
-                                const index = interfaceForm.elements[0].value;
+                                //const index = interfaceForm.elements[0].value;
                                 //ここでawaitを使用している
                                 //最終的にdeviceが決定？
-                                device = await connect(new dfu.Device(selectedDevice, interfaces[index]));
+                                //device = await connect(new dfu.Device(selectedDevice, interfaces[index]));
+                                device = await connect(new dfu.Device(selectedDevice, interfaces[0]));
                             }
                             connectToSelectedInterface()
                             //ここでsubmitを待つ変わりにconnectToSelectedInterfaceを叩くように
