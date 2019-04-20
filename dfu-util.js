@@ -265,8 +265,9 @@ var device = null;
 
         let configForm = document.querySelector("#configForm");
 
-        let transferSizeField = document.querySelector("#transferSize");
-        let transferSize = parseInt(transferSizeField.value);
+        //let transferSizeField = document.querySelector("#transferSize");
+        //let transferSize = parseInt(transferSizeField.value);
+        let transferSize = 1024;
 
         let dfuseStartAddressField = document.querySelector("#dfuseStartAddress");
         let dfuseUploadSizeField = document.querySelector("#dfuseUploadSize");
@@ -326,10 +327,10 @@ var device = null;
             let memorySummary = "";
             if (desc && Object.keys(desc).length > 0) {
                 device.properties = desc;
-                let info = `WillDetach=${desc.WillDetach}, ManifestationTolerant=${desc.ManifestationTolerant}, CanUpload=${desc.CanUpload}, CanDnload=${desc.CanDnload}, TransferSize=${desc.TransferSize}, DetachTimeOut=${desc.DetachTimeOut}, Version=${hex4(desc.DFUVersion)}`;
+                //let info = `WillDetach=${desc.WillDetach}, ManifestationTolerant=${desc.ManifestationTolerant}, CanUpload=${desc.CanUpload}, CanDnload=${desc.CanDnload}, TransferSize=${desc.TransferSize}, DetachTimeOut=${desc.DetachTimeOut}, Version=${hex4(desc.DFUVersion)}`;
                 console.log("接続OK");
                 //dfuDisplay.textContent += "\n" + info;
-                transferSizeField.value = desc.TransferSize;
+                //transferSizeField.value = desc.TransferSize;
                 transferSize = desc.TransferSize;
                 if (desc.CanDnload) {
                     manifestationTolerant = desc.ManifestationTolerant;
@@ -414,8 +415,8 @@ var device = null;
             }
 
             if (device.memoryInfo) {
-                let dfuseFieldsDiv = document.querySelector("#dfuseFields")
-                dfuseFieldsDiv.hidden = false;
+                //let dfuseFieldsDiv = document.querySelector("#dfuseFields")
+                //dfuseFieldsDiv.hidden = false;
                 dfuseStartAddressField.disabled = false;
                 dfuseUploadSizeField.disabled = false;
                 let segment = device.getFirstWritableSegment();
@@ -427,8 +428,8 @@ var device = null;
                     dfuseUploadSizeField.max = maxReadSize;
                 }
             } else {
-                let dfuseFieldsDiv = document.querySelector("#dfuseFields")
-                dfuseFieldsDiv.hidden = true;
+                //let dfuseFieldsDiv = document.querySelector("#dfuseFields")
+                //dfuseFieldsDiv.hidden = true;
                 dfuseStartAddressField.disabled = true;
                 dfuseUploadSizeField.disabled = true;
             }
@@ -474,9 +475,9 @@ var device = null;
         //     vid = parseInt(vidField.value, 16);
         // });
 
-        transferSizeField.addEventListener("change", function() {
-            transferSize = parseInt(transferSizeField.value);
-        });
+        // transferSizeField.addEventListener("change", function() {
+        //     transferSize = parseInt(transferSizeField.value);
+        // });
 
         dfuseStartAddressField.addEventListener("change", function(event) {
             const field = event.target;
