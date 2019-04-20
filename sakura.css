@@ -13,8 +13,8 @@ body {
   line-height: 1.618;
   max-width: 38em;
   margin: auto;
-  color: #4a4a4a;
-  background-color: #f9f9f9;
+  color: #f9f9f9;
+  background-color: #4a4a4a;
   padding: 13px; }
 
 @media (max-width: 684px) {
