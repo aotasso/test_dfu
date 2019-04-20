@@ -719,7 +719,8 @@ var device = null;
             fadeIn(page4, 500);
             //リダイレクトは伝搬が原因？？？
             //あとでパラメータにタイムスタンプ与えること
-            const url = "https://cdn.shopify.com/s/files/1/2681/3762/files/ParipiDestroyer_v1-1b.NUCLEO_L433RC_P-17.bin?57";
+            let targetFile = document.querySelector("li, .active")
+            let url = targetFile.getAttribute('data-url');
             fetch(url).then(function(response) {
                 return response.blob();
                 }).then(function(blob) {
