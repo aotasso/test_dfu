@@ -343,10 +343,10 @@ var device = null;
                         uploadButton.disabled = true;
                         //dfuseUploadSizeField.disabled = true;
                     }
-                    // if (!desc.CanDnload) {
-                    //     //dnloadButton.disabled = true;
-                    //     updateButton.disabled = true;
-                    // }
+                    if (!desc.CanDnload) {
+                        //dnloadButton.disabled = true;
+                        updateButton.disabled = true;
+                    }
                 }
 
                 if (desc.DFUVersion == 0x011a && device.settings.alternate.interfaceProtocol == 0x02) {
@@ -413,7 +413,7 @@ var device = null;
             } else {
                 // DFU
                 //detachButton.disabled = true;
-                updateButton.disabled = true;
+                updateButton.disabled = false;
                 uploadButton.disabled = false;
                 //downloadButton.disabled = false;
                 //firmwareFileField.disabled = false;
