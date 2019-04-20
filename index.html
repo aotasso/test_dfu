@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div id='page-2'>
+    <div id='page-2' style='display:none;'>
         左上のダイアログからパリピデストロイヤーを選択してください。
         <div class='btn'>
             <button id="connect">OK</button>
@@ -84,14 +84,17 @@
     <!-- デタッチ　※あとで実装予定 -->
 
     <div id='page-3' style='display:none;'>
-      <div>
+      <div class='btn'>
           <button id="update" disabled="true">ファームウェアのアップデート</button>
       </div>
-      <div class="log" id="downloadLog"></div>
     </div>
 
+    <div id='page-4' style='display:none;'>
+        <div class="log" id="downloadLog"></div>
+    </div>>
+
     <div style='display:none;'>
-      <div>
+      <div class='btn'>
           <button id="upload" disabled="true">パリピからアップロード</button>
       </div>
       <div class="log" id="uploadLog"></div>

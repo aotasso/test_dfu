@@ -223,6 +223,7 @@ var device = null;
         let page1 = document.querySelector("#page-1");
         let page2 = document.querySelector("#page-2");
         let page3 = document.querySelector("#page-3");
+        let page4 = document.querySelector("#page-3");
         let setParipi = document.querySelector("#set-paripi");
         let connectButton = document.querySelector("#connect");
         //let detachButton = document.querySelector("#detach");
@@ -714,6 +715,8 @@ var device = null;
             event.preventDefault();
             event.stopPropagation();
             firmwareFile = null;
+            page3.style.display = 'none';
+            fadeIn(page4, 500);
             //リダイレクトは伝搬が原因？？？
             //あとでパラメータにタイムスタンプ与えること
             const url = "https://cdn.shopify.com/s/files/1/2681/3762/files/ParipiDestroyer_v1-1b.NUCLEO_L433RC_P-17.bin?57";
