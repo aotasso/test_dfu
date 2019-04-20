@@ -292,6 +292,7 @@ var device = null;
             //infoDisplay.textContent = "";
             //dfuDisplay.textContent = "";
             //detachButton.disabled = true;
+            updateButton.disabled = true;
             uploadButton.disabled = true;
             //downloadButton.disabled = true;
             //firmwareFileField.disabled = true;
@@ -343,7 +344,8 @@ var device = null;
                         //dfuseUploadSizeField.disabled = true;
                     }
                     if (!desc.CanDnload) {
-                        dnloadButton.disabled = true;
+                        //dnloadButton.disabled = true;
+                        updateButton.disabled = true;
                     }
                 }
 
@@ -404,12 +406,14 @@ var device = null;
             if (device.settings.alternate.interfaceProtocol == 0x01) {
                 // Runtime
                 //detachButton.disabled = false;
+                updateButton.disabled = true;
                 uploadButton.disabled = true;
                 //downloadButton.disabled = true;
                 //firmwareFileField.disabled = true;
             } else {
                 // DFU
                 //detachButton.disabled = true;
+                updateButton.disabled = true;
                 uploadButton.disabled = false;
                 //downloadButton.disabled = false;
                 //firmwareFileField.disabled = false;
