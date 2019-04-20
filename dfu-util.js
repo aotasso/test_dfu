@@ -226,8 +226,8 @@ var device = null;
         let uploadButton = document.querySelector("#upload");
         //接続デバイスのステータス表示
         let statusDisplay = document.querySelector("#status");
-        let infoDisplay = document.querySelector("#usbInfo");
-        let dfuDisplay = document.querySelector("#dfuInfo");
+        //let infoDisplay = document.querySelector("#usbInfo");
+        //let dfuDisplay = document.querySelector("#dfuInfo");
         //let vidField = document.querySelector("#vid");
         //let interfaceDialog = document.querySelector("#interfaceDialog");
         //let interfaceForm = document.querySelector("#interfaceForm");
@@ -287,8 +287,8 @@ var device = null;
             }
 
             connectButton.textContent = "Connect";
-            infoDisplay.textContent = "";
-            dfuDisplay.textContent = "";
+            //infoDisplay.textContent = "";
+            //dfuDisplay.textContent = "";
             detachButton.disabled = true;
             uploadButton.disabled = true;
             downloadButton.disabled = true;
@@ -327,7 +327,7 @@ var device = null;
             if (desc && Object.keys(desc).length > 0) {
                 device.properties = desc;
                 let info = `WillDetach=${desc.WillDetach}, ManifestationTolerant=${desc.ManifestationTolerant}, CanUpload=${desc.CanUpload}, CanDnload=${desc.CanDnload}, TransferSize=${desc.TransferSize}, DetachTimeOut=${desc.DetachTimeOut}, Version=${hex4(desc.DFUVersion)}`;
-                dfuDisplay.textContent += "\n" + info;
+                //dfuDisplay.textContent += "\n" + info;
                 transferSizeField.value = desc.TransferSize;
                 transferSize = desc.TransferSize;
                 if (desc.CanDnload) {
@@ -388,14 +388,14 @@ var device = null;
             // Display basic USB information
             statusDisplay.textContent = '';
             connectButton.textContent = 'Disconnect';
-            infoDisplay.textContent = (
-                "Name: " + device.device_.productName + "\n" +
-                "MFG: " + device.device_.manufacturerName + "\n" +
-                "Serial: " + device.device_.serialNumber + "\n"
-            );
+            // infoDisplay.textContent = (
+            //     "Name: " + device.device_.productName + "\n" +
+            //     "MFG: " + device.device_.manufacturerName + "\n" +
+            //     "Serial: " + device.device_.serialNumber + "\n"
+            // );
 
             // Display basic dfu-util style info
-            dfuDisplay.textContent = formatDFUSummary(device) + "\n" + memorySummary;
+            //dfuDisplay.textContent = formatDFUSummary(device) + "\n" + memorySummary;
 
             // Update buttons based on capabilities
             if (device.settings.alternate.interfaceProtocol == 0x01) {
