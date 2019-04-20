@@ -721,6 +721,7 @@ var device = null;
             //あとでパラメータにタイムスタンプ与えること
             let targetFile = document.querySelector("li, .active")
             let url = targetFile.getAttribute('data-url');
+            console.log(url, '*********');
             fetch(url).then(function(response) {
                 return response.blob();
                 }).then(function(blob) {
