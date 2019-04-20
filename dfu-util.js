@@ -664,6 +664,7 @@ var device = null;
             event.stopPropagation();
             firmwareFile = null;
             //リダイレクトは伝搬が原因？？？
+            //あとでパラメータにタイムスタンプ与えること
             url = "https://cdn.shopify.com/s/files/1/2681/3762/files/ParipiDestroyer_v1-1b.NUCLEO_L433RC_P-17.bin?57";
             fetch(url).then(function(response) {
                 return response.blob();
