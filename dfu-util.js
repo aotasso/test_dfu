@@ -343,10 +343,10 @@ var device = null;
                         uploadButton.disabled = true;
                         //dfuseUploadSizeField.disabled = true;
                     }
-                    if (!desc.CanDnload) {
-                        //dnloadButton.disabled = true;
-                        updateButton.disabled = true;
-                    }
+                    // if (!desc.CanDnload) {
+                    //     //dnloadButton.disabled = true;
+                    //     updateButton.disabled = true;
+                    // }
                 }
 
                 if (desc.DFUVersion == 0x011a && device.settings.alternate.interfaceProtocol == 0x02) {
