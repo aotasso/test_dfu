@@ -224,6 +224,7 @@ var device = null;
         let page2 = document.querySelector("#page-2");
         let page3 = document.querySelector("#page-3");
         let page4 = document.querySelector("#page-4");
+        let page5 = document.querySelector("#page-5");
         let setParipi = document.querySelector("#set-paripi");
         let connectButton = document.querySelector("#connect");
         //let detachButton = document.querySelector("#detach");
@@ -763,7 +764,9 @@ var device = null;
                 //ここで書き込みかなあ
                 await device.do_download(transferSize, firmwareFile, manifestationTolerant).then(
                     () => {
-                        logInfo("Done!");
+                        page4.style.display = 'none';
+                        fadeIn(page5, 500);
+                        //logInfo("Done!");
                         setLogContext(null);
                         if (!manifestationTolerant) {
                             device.waitDisconnected(5000).then(
