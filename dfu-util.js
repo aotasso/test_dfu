@@ -219,7 +219,7 @@ var device = null;
     }
 
     document.addEventListener('DOMContentLoaded', event => {
-        let modalParipi = document.querySelecter("#modal-paripi");
+        let modalParipi = document.querySelector("#modal-paripi");
         let connectButton = document.querySelector("#connect");
         //let detachButton = document.querySelector("#detach");
         //追加分
