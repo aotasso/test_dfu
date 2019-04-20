@@ -667,7 +667,7 @@ var device = null;
                     let reader = new FileReader();
                     reader.onload = function() {
                         firmwareFile = reader.result;
-                        await startDownload()
+                        startDownload();
                     }
                      //reader.readAsDataURL(blob);
                     reader.readAsArrayBuffer(blob);
