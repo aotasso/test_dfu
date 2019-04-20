@@ -317,7 +317,8 @@ var device = null;
 
         function onDisconnect(reason) {
             if (reason) {
-                statusDisplay.textContent = reason;
+                //statusDisplay.textContent = reason;
+                console.log(reason);
             }
 
             connectButton.textContent = "Connect";
@@ -423,7 +424,7 @@ var device = null;
             clearLog(downloadLog);
 
             // Display basic USB information
-            statusDisplay.textContent = '';
+            //statusDisplay.textContent = '';
             connectButton.textContent = 'Disconnect';
             // infoDisplay.textContent = (
             //     "Name: " + device.device_.productName + "\n" +
@@ -491,15 +492,18 @@ var device = null;
                     }
 
                     if (matching_devices.length == 0) {
-                        statusDisplay.textContent = 'No device found.';
+                        //statusDisplay.textContent = 'No device found.';
+                        console.log('No device found.');
                     } else {
                         if (matching_devices.length == 1) {
-                            statusDisplay.textContent = 'Connecting...';
+                            //statusDisplay.textContent = 'Connecting...';
+                            console.log('Connecting...');
                             device = matching_devices[0];
                             //console.log(device);
                             device = await connect(device);
                         } else {
-                            statusDisplay.textContent = "Multiple DFU interfaces found.";
+                            //statusDisplay.textContent = "Multiple DFU interfaces found.";
+                            console.log('Multiple DFU interfaces found.');
                         }
                         //vidField.value = "0x" + hex4(matching_devices[0].device_.vendorId).toUpperCase();
                         vid = matching_devices[0].device_.vendorId;
@@ -553,7 +557,8 @@ var device = null;
                         let interfaces = dfu.findDeviceDfuInterfaces(selectedDevice);
                         if (interfaces.length == 0) {
                             //console.log(selectedDevice);
-                            statusDisplay.textContent = "The selected device does not have any USB DFU interfaces.";
+                            //statusDisplay.textContent = "The selected device does not have any USB DFU interfaces.";
+                            console.log("The selected device does not have any USB DFU interfaces.");
                         } else if (interfaces.length == 1) {
                             await fixInterfaceNames(selectedDevice, interfaces);
                             //ここでawaitを使用している
@@ -594,7 +599,8 @@ var device = null;
                         }
                     }
                 ).catch(error => {
-                    statusDisplay.textContent = error;
+                    //statusDisplay.textContent = error;
+                    console.log(error);
                 });
             }
         });
@@ -778,7 +784,8 @@ var device = null;
                 autoConnect(vid, serial);
             }
         } else {
-            statusDisplay.textContent = 'WebUSB not available.'
+            //statusDisplay.textContent = 'WebUSB not available.'
+            console.log('WebUSB not available.');
             connectButton.disabled = true;
         }
     });
