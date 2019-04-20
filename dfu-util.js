@@ -200,6 +200,7 @@ var device = null;
         }
     }
 
+    //プログレスバー
     function logProgress(done, total) {
         if (logContext) {
             let progressBar;
