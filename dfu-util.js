@@ -223,7 +223,7 @@ var device = null;
         let page1 = document.querySelector("#page-1");
         let page2 = document.querySelector("#page-2");
         let page3 = document.querySelector("#page-3");
-        let page4 = document.querySelector("#page-3");
+        let page4 = document.querySelector("#page-4");
         let setParipi = document.querySelector("#set-paripi");
         let connectButton = document.querySelector("#connect");
         //let detachButton = document.querySelector("#detach");
@@ -715,7 +715,6 @@ var device = null;
             event.stopPropagation();
             firmwareFile = null;
             page3.style.display = 'none';
-            console.log('page4');
             fadeIn(page4, 500);
             //リダイレクトは伝搬が原因？？？
             //あとでパラメータにタイムスタンプ与えること
