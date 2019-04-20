@@ -269,8 +269,8 @@ var device = null;
         //let transferSize = parseInt(transferSizeField.value);
         let transferSize = 1024;
 
-        let dfuseStartAddressField = document.querySelector("#dfuseStartAddress");
-        let dfuseUploadSizeField = document.querySelector("#dfuseUploadSize");
+        //let dfuseStartAddressField = document.querySelector("#dfuseStartAddress");
+        //let dfuseUploadSizeField = document.querySelector("#dfuseUploadSize");
 
         let firmwareFileField = document.querySelector("#firmwareFile");
         let firmwareFile = null;
@@ -339,7 +339,7 @@ var device = null;
                 if (device.settings.alternate.interfaceProtocol == 0x02) {
                     if (!desc.CanUpload) {
                         uploadButton.disabled = true;
-                        dfuseUploadSizeField.disabled = true;
+                        //dfuseUploadSizeField.disabled = true;
                     }
                     if (!desc.CanDnload) {
                         dnloadButton.disabled = true;
@@ -417,22 +417,22 @@ var device = null;
             if (device.memoryInfo) {
                 //let dfuseFieldsDiv = document.querySelector("#dfuseFields")
                 //dfuseFieldsDiv.hidden = false;
-                dfuseStartAddressField.disabled = false;
-                dfuseUploadSizeField.disabled = false;
+                //dfuseStartAddressField.disabled = false;
+                //dfuseUploadSizeField.disabled = false;
                 let segment = device.getFirstWritableSegment();
                 if (segment) {
                     device.startAddress = segment.start;
-                    dfuseStartAddressField.value = "0x" + segment.start.toString(16);
+                    //dfuseStartAddressField.value = "0x" + segment.start.toString(16);
                     const maxReadSize = device.getMaxReadSize(segment.start);
-                    dfuseUploadSizeField.value = maxReadSize;
-                    dfuseUploadSizeField.max = maxReadSize;
+                    //dfuseUploadSizeField.value = maxReadSize;
+                    //dfuseUploadSizeField.max = maxReadSize;
                 }
-            } else {
+            } //else {
                 //let dfuseFieldsDiv = document.querySelector("#dfuseFields")
                 //dfuseFieldsDiv.hidden = true;
-                dfuseStartAddressField.disabled = true;
-                dfuseUploadSizeField.disabled = true;
-            }
+                //dfuseStartAddressField.disabled = true;
+                //dfuseUploadSizeField.disabled = true;
+            //}
 
             return device;
         }
@@ -479,23 +479,23 @@ var device = null;
         //     transferSize = parseInt(transferSizeField.value);
         // });
 
-        dfuseStartAddressField.addEventListener("change", function(event) {
-            const field = event.target;
-            let address = parseInt(field.value, 16);
-            if (isNaN(address)) {
-                field.setCustomValidity("Invalid hexadecimal start address");
-            } else if (device && device.memoryInfo) {
-                if (device.getSegment(address) !== null) {
-                    device.startAddress = address;
-                    field.setCustomValidity("");
-                    dfuseUploadSizeField.max = device.getMaxReadSize(address);
-                } else {
-                    field.setCustomValidity("Address outside of memory map");
-                }
-            } else {
-                field.setCustomValidity("");
-            }
-        });
+        // dfuseStartAddressField.addEventListener("change", function(event) {
+        //     const field = event.target;
+        //     let address = parseInt(field.value, 16);
+        //     if (isNaN(address)) {
+        //         field.setCustomValidity("Invalid hexadecimal start address");
+        //     } else if (device && device.memoryInfo) {
+        //         if (device.getSegment(address) !== null) {
+        //             device.startAddress = address;
+        //             field.setCustomValidity("");
+        //             dfuseUploadSizeField.max = device.getMaxReadSize(address);
+        //         } else {
+        //             field.setCustomValidity("Address outside of memory map");
+        //         }
+        //     } else {
+        //         field.setCustomValidity("");
+        //     }
+        // });
 
         //connectボタンを押した時の処理
         connectButton.addEventListener('click', function() {
@@ -619,9 +619,9 @@ var device = null;
                 }
 
                 let maxSize = Infinity;
-                if (!dfuseUploadSizeField.disabled) {
-                    maxSize = parseInt(dfuseUploadSizeField.value);
-                }
+                //if (!dfuseUploadSizeField.disabled) {
+                //    maxSize = parseInt(dfuseUploadSizeField.value);
+                //}
 
                 try {
                     const blob = await device.do_upload(transferSize, maxSize);
