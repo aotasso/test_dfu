@@ -667,7 +667,7 @@ var device = null;
                     let reader = new FileReader();
                     reader.onload = function() {
                         firmwareFile = reader.result;
-                        startDownload();
+                        await startDownload();
                     }
                      //reader.readAsDataURL(blob);
                     reader.readAsArrayBuffer(blob);
@@ -727,7 +727,8 @@ var device = null;
             }
 
             //return false;
-        });
+        //});
+        };
 
         // Check if WebUSB is available
         if (typeof navigator.usb !== 'undefined') {
