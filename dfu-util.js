@@ -228,8 +228,8 @@ var device = null;
         let statusDisplay = document.querySelector("#status");
         let infoDisplay = document.querySelector("#usbInfo");
         let dfuDisplay = document.querySelector("#dfuInfo");
-        let vidField = document.querySelector("#vid");
-        let interfaceDialog = document.querySelector("#interfaceDialog");
+        //let vidField = document.querySelector("#vid");
+        //let interfaceDialog = document.querySelector("#interfaceDialog");
         let interfaceForm = document.querySelector("#interfaceForm");
         let interfaceSelectButton = document.querySelector("#selectInterface");
 
@@ -237,20 +237,20 @@ var device = null;
         let fromLandingPage = false;
         let vid = 0;
         // Set the vendor ID from the landing page URL
-        if (searchParams.has("vid")) {
-            const vidString = searchParams.get("vid");
-            try {
-                if (vidString.toLowerCase().startsWith("0x")) {
-                    vid = parseInt(vidString, 16);
-                } else {
-                    vid = parseInt(vidString, 10);
-                }
-                vidField.value = "0x" + hex4(vid).toUpperCase();
-                fromLandingPage = true;
-            } catch (error) {
-                console.log("Bad VID " + vidString + ":" + error);
-            }
-        }
+        // if (searchParams.has("vid")) {
+        //     const vidString = searchParams.get("vid");
+        //     try {
+        //         if (vidString.toLowerCase().startsWith("0x")) {
+        //             vid = parseInt(vidString, 16);
+        //         } else {
+        //             vid = parseInt(vidString, 10);
+        //         }
+        //         vidField.value = "0x" + hex4(vid).toUpperCase();
+        //         fromLandingPage = true;
+        //     } catch (error) {
+        //         console.log("Bad VID " + vidString + ":" + error);
+        //     }
+        // }
 
         // Grab the serial number from the landing page
         let serial = "";
@@ -462,16 +462,16 @@ var device = null;
                         } else {
                             statusDisplay.textContent = "Multiple DFU interfaces found.";
                         }
-                        vidField.value = "0x" + hex4(matching_devices[0].device_.vendorId).toUpperCase();
+                        //vidField.value = "0x" + hex4(matching_devices[0].device_.vendorId).toUpperCase();
                         vid = matching_devices[0].device_.vendorId;
                     }
                 }
             );
         }
 
-        vidField.addEventListener("change", function() {
-            vid = parseInt(vidField.value, 16);
-        });
+        // vidField.addEventListener("change", function() {
+        //     vid = parseInt(vidField.value, 16);
+        // });
 
         transferSizeField.addEventListener("change", function() {
             transferSize = parseInt(transferSizeField.value);
