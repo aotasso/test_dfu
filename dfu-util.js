@@ -223,7 +223,7 @@ var device = null;
         //let detachButton = document.querySelector("#detach");
         //追加分
         let updateButton = document.querySelector("#update");
-        let downloadButton = document.querySelector("#download");
+        //let downloadButton = document.querySelector("#download");
         let uploadButton = document.querySelector("#upload");
         //接続デバイスのステータス表示
         let statusDisplay = document.querySelector("#status");
@@ -293,7 +293,7 @@ var device = null;
             //dfuDisplay.textContent = "";
             //detachButton.disabled = true;
             uploadButton.disabled = true;
-            downloadButton.disabled = true;
+            //downloadButton.disabled = true;
             //firmwareFileField.disabled = true;
         }
 
@@ -405,13 +405,13 @@ var device = null;
                 // Runtime
                 //detachButton.disabled = false;
                 uploadButton.disabled = true;
-                downloadButton.disabled = true;
+                //downloadButton.disabled = true;
                 //firmwareFileField.disabled = true;
             } else {
                 // DFU
                 //detachButton.disabled = true;
                 uploadButton.disabled = false;
-                downloadButton.disabled = false;
+                //downloadButton.disabled = false;
                 //firmwareFileField.disabled = false;
             }
 
@@ -678,7 +678,6 @@ var device = null;
         //イベント監視開始
         //downloadButton.addEventListener('click', async function(event) {
         async function startDownload() {
-            console.log('start download');
             //イベント伝搬を止める？
             //event.preventDefault();
             //イベント伝搬を止める？

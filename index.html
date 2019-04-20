@@ -69,37 +69,17 @@
     </fieldset> -->
     <!-- デタッチ　※あとで実装予定 -->
 
-    <fieldset>
-      <form id="configForm">
-        <!-- <label for="transferSize">Transfer Size:</label>
-        <input type="number" name="transferSize" id="transferSize" value="1024"/> -->
-        <!-- <div id="dfuseFields" hidden="true">
-          <label for="dfuseStartAddress">DfuSe Start Address:</label>
-          <input type="text" name="dfuseStartAddress" id="dfuseStartAddress" title="Initial memory address to read/write from (hex)" size="10" pattern="0x[A-Fa-f0-9]+"/>
-          <label for="dfuseUploadSize">DfuSe Upload Size:</label>
-          <input type="number" name="dfuseUploadSize" id="dfuseUploadSize" min="1"/>
-        </div> -->
-
-        <legend>DFUモードがここからできるよ</legend>
-        <fieldset>
-          <legend>デバイスに書き込み</legend>
-          <!-- <p>
-            <input type="file" id="firmwareFile" name="file" disabled="true"/>
-          </p> -->
-          <p>
-            <button id="download" disabled="true">パリピにダウンロード</button>
-          </p>
-          <div class="log" id="downloadLog"></div>
-        </fieldset>
-        <fieldset>
-          <legend>デバイスから読み込み</legend>
-          <p>
-            <button id="upload" disabled="true">パリピからアップロード</button>
-          </p>
-          <div class="log" id="uploadLog"></div>
-        </fieldset>
-      </form>
-    </fieldset>
-    <button id="update">ファームウェアのアップデート</button>
+    <div>
+      <div>
+          <button id="update">ファームウェアのアップデート</button>
+      </div>
+      <div class="log" id="downloadLog"></div>
+    </div>
+    <div>
+      <div>
+          <button id="upload" disabled="true">パリピからアップロード</button>
+      </div>
+      <div class="log" id="uploadLog"></div>
+    </div>
   </body>
 </html>
