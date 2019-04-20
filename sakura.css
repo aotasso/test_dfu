@@ -35,7 +35,7 @@ div#modal-paripi {
 }
 
 ul {
-  display: inline-block;
+  list-style: none;
 }
 
 li.active {
