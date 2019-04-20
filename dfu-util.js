@@ -284,8 +284,6 @@ var device = null;
 
         //let device;
         
-        fadeIn(document.querySelector('#modal-paripi'), 300);
-
         function fadeIn(node, duration) {
             // display: noneでないときは何もしない
             if (getComputedStyle(node).display !== 'none') return;
@@ -315,7 +313,8 @@ var device = null;
               }
             });
         }
-        
+        fadeIn(document.querySelector('#modal-paripi'), 300);
+
         function onDisconnect(reason) {
             if (reason) {
                 statusDisplay.textContent = reason;
