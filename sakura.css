@@ -23,6 +23,8 @@ div.paripi-modal {
   max-width: 38em;
   color: #4a4a4a;
   background-color: #f9f9f9;
+  padding: 13px;
+  position: fixed;
 }
 
 @media (max-width: 684px) {
