@@ -220,8 +220,8 @@ var device = null;
 
     document.addEventListener('DOMContentLoaded', event => {
         let modalParipi = document.querySelector("#modal-paripi");
-        let page1 = document.querySelector("page-1");
-        let page2 = document.querySelector("page-2");
+        let page1 = document.querySelector("#page-1");
+        let page2 = document.querySelector("#page-2");
         let connectButton = document.querySelector("#connect");
         //let detachButton = document.querySelector("#detach");
         //追加分
@@ -366,7 +366,7 @@ var device = null;
                 device.properties = desc;
                 //let info = `WillDetach=${desc.WillDetach}, ManifestationTolerant=${desc.ManifestationTolerant}, CanUpload=${desc.CanUpload}, CanDnload=${desc.CanDnload}, TransferSize=${desc.TransferSize}, DetachTimeOut=${desc.DetachTimeOut}, Version=${hex4(desc.DFUVersion)}`;
                 page1.style.display = "none";
-                //page2.style.display = "block";
+                page2.style.display = "block";
                 fadeIn(page2, 500);
                 //dfuDisplay.textContent += "\n" + info;
                 //transferSizeField.value = desc.TransferSize;
