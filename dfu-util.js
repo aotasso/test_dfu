@@ -273,7 +273,7 @@ var device = null;
         //let dfuseStartAddressField = document.querySelector("#dfuseStartAddress");
         //let dfuseUploadSizeField = document.querySelector("#dfuseUploadSize");
 
-        let firmwareFileField = document.querySelector("#firmwareFile");
+        //let firmwareFileField = document.querySelector("#firmwareFile");
         let firmwareFile = null;
 
         let downloadLog = document.querySelector("#downloadLog");
@@ -294,7 +294,7 @@ var device = null;
             //detachButton.disabled = true;
             uploadButton.disabled = true;
             downloadButton.disabled = true;
-            firmwareFileField.disabled = true;
+            //firmwareFileField.disabled = true;
         }
 
         function onUnexpectedDisconnect(event) {
@@ -406,13 +406,13 @@ var device = null;
                 //detachButton.disabled = false;
                 uploadButton.disabled = true;
                 downloadButton.disabled = true;
-                firmwareFileField.disabled = true;
+                //firmwareFileField.disabled = true;
             } else {
                 // DFU
                 //detachButton.disabled = true;
                 uploadButton.disabled = false;
                 downloadButton.disabled = false;
-                firmwareFileField.disabled = false;
+                //firmwareFileField.disabled = false;
             }
 
             if (device.memoryInfo) {
