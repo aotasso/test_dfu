@@ -34,6 +34,11 @@ div#modal-paripi {
   /* transform: translateY(20px); */
 }
 
+div.btn {
+  position: absolute;
+  bottom: 0;
+}
+
 @media (max-width: 684px) {
   body {
     font-size: 1.53rem; } }
