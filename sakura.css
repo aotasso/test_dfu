@@ -37,6 +37,7 @@ div#modal-paripi {
 div.btn {
   position: absolute;
   bottom: 0;
+  padding: 10px 20px;
 }
 
 @media (max-width: 684px) {
