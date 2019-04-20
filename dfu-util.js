@@ -222,6 +222,8 @@ var device = null;
         let modalParipi = document.querySelector("#modal-paripi");
         let page1 = document.querySelector("#page-1");
         let page2 = document.querySelector("#page-2");
+        let page3 = document.querySelector("#page-3");
+        let setParipi = document.querySelector("#set-paripi");
         let connectButton = document.querySelector("#connect");
         //let detachButton = document.querySelector("#detach");
         //追加分
@@ -365,8 +367,8 @@ var device = null;
             if (desc && Object.keys(desc).length > 0) {
                 device.properties = desc;
                 //let info = `WillDetach=${desc.WillDetach}, ManifestationTolerant=${desc.ManifestationTolerant}, CanUpload=${desc.CanUpload}, CanDnload=${desc.CanDnload}, TransferSize=${desc.TransferSize}, DetachTimeOut=${desc.DetachTimeOut}, Version=${hex4(desc.DFUVersion)}`;
-                page1.style.display = "none";
-                page2.style.display = "block";
+                page2.style.display = "none";
+                page3.style.display = "block";
                 fadeIn(page2, 500);
                 //dfuDisplay.textContent += "\n" + info;
                 //transferSizeField.value = desc.TransferSize;
@@ -541,6 +543,11 @@ var device = null;
         //         field.setCustomValidity("");
         //     }
         // });
+
+        setParipi.addEventListener('click', function() {
+            page1.style.display = 'none';
+            fadeIn(page2, 500);
+        })
 
         //connectボタンを押した時の処理
         connectButton.addEventListener('click', function() {
