@@ -667,7 +667,7 @@ var device = null;
                     let reader = new FileReader();
                     reader.onload = function() {
                         firmwareFile = reader.result;
-                        await startDownload();
+                        startDownload();
                     }
                      //reader.readAsDataURL(blob);
                     reader.readAsArrayBuffer(blob);
@@ -677,7 +677,7 @@ var device = null;
 
         //イベント監視開始
         //downloadButton.addEventListener('click', async function(event) {
-        async function startDownload() {
+        function startDownload() {
             //イベント伝搬を止める？
             event.preventDefault();
             //イベント伝搬を止める？
