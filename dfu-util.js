@@ -677,7 +677,7 @@ var device = null;
 
         //イベント監視開始
         //downloadButton.addEventListener('click', async function(event) {
-        function startDownload() {
+        async function startDownload() {
             //イベント伝搬を止める？
             event.preventDefault();
             //イベント伝搬を止める？
