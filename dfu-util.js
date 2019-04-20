@@ -227,7 +227,7 @@ var device = null;
         //let downloadButton = document.querySelector("#download");
         let uploadButton = document.querySelector("#upload");
         //接続デバイスのステータス表示
-        let statusDisplay = document.querySelector("#status");
+        //let statusDisplay = document.querySelector("#status");
         //let infoDisplay = document.querySelector("#usbInfo");
         //let dfuDisplay = document.querySelector("#dfuInfo");
         //let vidField = document.querySelector("#vid");
