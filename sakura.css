@@ -34,8 +34,13 @@ div#modal-paripi {
   /* transform: translateY(20px); */
 }
 
+li {
+  display: inline-block;
+}
+
 li.active {
   background: #2c8898;
+
 }
 
 div.btn {
