@@ -44,12 +44,14 @@
 
     <!-- 接続ボタン -->
     <!-- モーダル１ページ目 -->
-    <div>
+
+    <div id='page-1'>
         パリピデストロイヤーを接続してください。
 　      <div>
             <button id="connect">接続しました</button>
         </div>
     </div>
+
     <!-- 接続ボタン -->
     
     <!-- セレクトインターフェースダイアログ -->
@@ -74,18 +76,20 @@
     </fieldset> -->
     <!-- デタッチ　※あとで実装予定 -->
 
-    <div>
+    <div id='page-2' style='display:none;'>
       <div>
           <button id="update" disabled="true">ファームウェアのアップデート</button>
       </div>
       <div class="log" id="downloadLog"></div>
     </div>
-    <div>
+
+    <div style='display:none;'>
       <div>
           <button id="upload" disabled="true">パリピからアップロード</button>
       </div>
       <div class="log" id="uploadLog"></div>
     </div>
+
   </div>
   </body>
 </html>
