@@ -264,7 +264,7 @@ var device = null;
             fromLandingPage = true;
         }
 
-        let configForm = document.querySelector("#configForm");
+        //let configForm = document.querySelector("#configForm");
 
         //let transferSizeField = document.querySelector("#transferSize");
         //let transferSize = parseInt(transferSizeField.value);
@@ -598,11 +598,11 @@ var device = null;
             event.preventDefault();
             event.stopPropagation();
             //input要素の入力内容の検証を実行
-            if (!configForm.checkValidity()) {
-                //ダメならこっちに入る
-                configForm.reportValidity();
-                return false;
-            }
+            // if (!configForm.checkValidity()) {
+            //     //ダメならこっちに入る
+            //     configForm.reportValidity();
+            //     return false;
+            // }
             //deviceチェック
             if (!device || !device.device_.opened) {
                 onDisconnect();
@@ -681,11 +681,11 @@ var device = null;
             //イベント伝搬を止める？
             event.stopPropagation();
             //input要素の入力内容の検証を実行
-            if (!configForm.checkValidity()) {
-                //ダメならこっちに入る
-                configForm.reportValidity();
-                return false;
-            }
+            // if (!configForm.checkValidity()) {
+            //     //ダメならこっちに入る
+            //     configForm.reportValidity();
+            //     return false;
+            // }
             //deviceチェック＆バイナリnullチェック
             //console.log('firmwareFile: ', firmwareFile);
             if (device && firmwareFile != null) {
