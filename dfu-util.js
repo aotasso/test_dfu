@@ -456,7 +456,7 @@ var device = null;
                         if (matching_devices.length == 1) {
                             statusDisplay.textContent = 'Connecting...';
                             device = matching_devices[0];
-                            console.log(device);
+                            //console.log(device);
                             device = await connect(device);
                         } else {
                             statusDisplay.textContent = "Multiple DFU interfaces found.";
@@ -512,7 +512,7 @@ var device = null;
                     async selectedDevice => {
                         let interfaces = dfu.findDeviceDfuInterfaces(selectedDevice);
                         if (interfaces.length == 0) {
-                            console.log(selectedDevice);
+                            //console.log(selectedDevice);
                             statusDisplay.textContent = "The selected device does not have any USB DFU interfaces.";
                         } else if (interfaces.length == 1) {
                             await fixInterfaceNames(selectedDevice, interfaces);
@@ -655,18 +655,12 @@ var device = null;
             firmwareFile = null;
             //リダイレクトは伝搬が原因？？？
             fetch('https://aotasso.github.io/test_dfu/firmware.bin').then(function(response) {
-                console.log('656');
                 return response.blob();
                 }).then(function(blob) {
-                    console.log(blob);
                     // blobにBlob型で結果が渡される
-                    console.log('5');
                     let reader = new FileReader();
-                    console.log(reader);
                     reader.onload = function() {
                         firmwareFile = reader.result;
-                        console.log('*****firmwareFile');
-                        console.log(firmwareFile);
                     }
                      //reader.readAsDataURL(blob);
                     reader.readAsArrayBuffer(blob);
@@ -687,7 +681,7 @@ var device = null;
                 return false;
             }
             //deviceチェック＆バイナリnullチェック
-            console.log('firmwareFile: ', firmwareFile);
+            //console.log('firmwareFile: ', firmwareFile);
             if (device && firmwareFile != null) {
                 setLogContext(downloadLog);
                 clearLog(downloadLog);

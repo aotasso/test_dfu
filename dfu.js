@@ -415,7 +415,6 @@ var dfu = {};
             "index": this.intfNumber
         }, wLength).then(
             result => {
-                console.log('result:418');
                 if (result.status == "ok") {
                     return Promise.resolve(result.data);
                 } else {
@@ -423,7 +422,6 @@ var dfu = {};
                 }
             },
             error => {
-                console.log('error:425');
                 return Promise.reject("ControlTransferIn failed: " + error);
             }
         );
@@ -465,7 +463,6 @@ var dfu = {};
     };
 
     dfu.Device.prototype.download = function(data, blockNum) {
-        console.log('パリピに送るdata: ', data);
         return this.requestOut(dfu.DNLOAD, data, blockNum);
     };
 
@@ -554,8 +551,8 @@ var dfu = {};
 
     dfu.Device.prototype.poll_until = async function(state_predicate) {
         let dfu_status = await this.getStatus();
-        console.log('dfu_status');
-        console.log(dfu_status);
+        //console.log('dfu_status');
+        //console.log(dfu_status);
 
         let device = this;
         function async_sleep(duration_ms) {
