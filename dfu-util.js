@@ -627,6 +627,8 @@ var device = null;
                 //if (!dfuseUploadSizeField.disabled) {
                 //    maxSize = parseInt(dfuseUploadSizeField.value);
                 //}
+                //最大アップロードサイズ
+                maxSize = 262144;
 
                 try {
                     const blob = await device.do_upload(transferSize, maxSize);
