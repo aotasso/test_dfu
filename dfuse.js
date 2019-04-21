@@ -181,6 +181,7 @@ var dfuse = {};
         return numBytes;
     };
 
+    //データ消去
     dfuse.Device.prototype.erase = async function(startAddr, length) {
         let segment = this.getSegment(startAddr);
         let addr = this.getSectorStart(startAddr, segment);
@@ -214,6 +215,7 @@ var dfuse = {};
         }
     };
 
+    //書き込み
     dfuse.Device.prototype.do_download = async function(xfer_size, data, manifestationTolerant) {
         if (!this.memoryInfo || ! this.memoryInfo.segments) {
             throw "No memory map available";
@@ -231,7 +233,10 @@ var dfuse = {};
         } else if (this.getSegment(startAddress) === null) {
             this.logError(`Start address 0x${startAddress.toString(16)} outside of memory map bounds`);
         }
+        //データの消去
         await this.erase(startAddress, expected_size);
+        let targetInfo = document.querySelector('#downloadLog');
+        targetInfo.textContent = null;
 
         this.logInfo("Copying data from browser to DFU device");
 
@@ -262,9 +267,9 @@ var dfuse = {};
 
             this.logProgress(bytes_sent, expected_size);
         }
-        this.logInfo(`Wrote ${bytes_sent} bytes`);
+        //this.logInfo(`Wrote ${bytes_sent} bytes`);
 
-        this.logInfo("Manifesting new firmware");
+        //this.logInfo("Manifesting new firmware");
         try {
             await this.dfuseCommand(dfuse.SET_ADDRESS, startAddress, 4);
             await this.download(new ArrayBuffer(), 0);

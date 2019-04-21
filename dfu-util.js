@@ -175,7 +175,7 @@ var device = null;
 
     function logInfo(msg) {
         if (logContext) {
-            let info = document.createElement("p");
+            let info = document.createElement("div");
             info.className = "info";
             info.textContent = msg;
             logContext.appendChild(info);

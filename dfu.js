@@ -519,7 +519,7 @@ var dfu = {};
         let blocks = [];
         let bytes_read = 0;
 
-        this.logInfo("Copying data from DFU device to browser");
+        //this.logInfo("Copying data from DFU device to browser");
         // Initialize progress to 0
         this.logProgress(0);
 
@@ -616,8 +616,8 @@ var dfu = {};
             throw "Error during final DFU download: " + error;
         }
 
-        this.logInfo("Wrote " + bytes_sent + " bytes");
-        this.logInfo("Manifesting new firmware");
+        //this.logInfo("Wrote " + bytes_sent + " bytes");
+        //this.logInfo("Manifesting new firmware");
 
         if (manifestationTolerant) {
             // Transition to MANIFEST_SYNC state
