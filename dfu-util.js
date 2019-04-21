@@ -211,10 +211,12 @@ var device = null;
                 progressBar = document.createElement("progress");
                 logContext.appendChild(progressBar);
             }
+            console.log(done, '**************done');
             progressBar.value = done;
             if (typeof total !== 'undefined') {
                 progressBar.max = total;
             }
+            console.log(progressBar, '***************progressBar');
         }
     }
 
