@@ -221,7 +221,7 @@ var dfuse = {};
             throw "No memory map available";
         }
 
-        this.logInfo("Erasing DFU device memory");
+        this.logInfo("インストールの準備中です...");
         
         let bytes_sent = 0;
         let expected_size = data.byteLength;
@@ -238,7 +238,7 @@ var dfuse = {};
         let targetInfo = document.querySelector('#downloadLog');
         targetInfo.textContent = null;
 
-        this.logInfo("Copying data from browser to DFU device");
+        this.logInfo("インストールしています...");
 
         let address = startAddress;
         while (bytes_sent < expected_size) {
